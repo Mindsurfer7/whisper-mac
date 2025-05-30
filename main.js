@@ -162,6 +162,9 @@ function stopRecording() {
   console.log('⏹️ Запись остановлена.');
   console.log('🔄 Обработка аудио с помощью Whisper AI...');
   
+  // Воспроизведение звукового сигнала остановки записи
+  exec('afplay /System/Library/Sounds/Purr.aiff');
+  
   // Обновление меню трея
   const newContextMenu = Menu.buildFromTemplate([
     { 
@@ -250,7 +253,7 @@ function stopRecording() {
         console.log('📋 Текст скопирован в буфер обмена');
         
         // Оповещение об успехе
-        exec('afplay /System/Library/Sounds/Hero.aiff');
+        exec('afplay /System/Library/Sounds/Glass.aiff');
       } else {
         console.log('❓ Текст не распознан');
         mainWindow.webContents.send('transcription-error', 'Текст не распознан');
