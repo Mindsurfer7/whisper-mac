@@ -48,16 +48,16 @@ function createWindow() {
   
   // Регистрация горячих клавиш
   try {
-    globalShortcut.register('F6', () => {
+    globalShortcut.register('CommandOrControl+\\', () => {
       if (isRecording) {
         stopRecording();
       } else {
         startRecording();
       }
     });
-    console.log('F6 зарегистрирован успешно');
+    console.log('Command+\\ зарегистрирован успешно');
   } catch (error) {
-    console.error('Ошибка при регистрации F6:', error);
+    console.error('Ошибка при регистрации Command+\\:', error);
   }
 }
 
@@ -78,7 +78,7 @@ function createTray() {
   
   const contextMenu = Menu.buildFromTemplate([
     { 
-      label: 'Запись (F6)', 
+      label: 'Запись (Cmd+\\)', 
       click: () => {
         if (isRecording) {
           stopRecording();
@@ -142,7 +142,7 @@ function startRecording() {
   // Обновление меню трея
   const newContextMenu = Menu.buildFromTemplate([
     { 
-      label: '⏹️ Остановить запись (F6)', 
+      label: '⏹️ Остановить запись (Cmd+\\)', 
       click: () => stopRecording() 
     },
     { type: 'separator' },
@@ -269,7 +269,7 @@ function stopRecording() {
       // Восстановление нормального меню
       const defaultContextMenu = Menu.buildFromTemplate([
         { 
-          label: '🎙️ Начать запись (F6)', 
+          label: '🎙️ Начать запись (Cmd+\\)', 
           click: () => startRecording() 
         },
         { type: 'separator' },
