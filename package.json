@@ -2,14 +2,14 @@
   "name": "whisper-mac",
   "version": "1.0.0",
   "description": "Приложение для преобразования голоса в текст с помощью OpenAI Whisper API на macOS",
-  "main": "index.js",
+  "main": "main.js",
   "bin": {
     "whisper-mac": "./index.js"
   },
   "scripts": {
-    "start": "node index.js",
-    "hotkey": "node index.js -k",
-    "hotkey:sudo": "sudo node index.js -k",
+    "start": "unset NODE_OPTIONS && electron .",
+    "dev": "unset NODE_OPTIONS && electron . --debug",
+    "build": "unset NODE_OPTIONS && electron-builder",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -18,7 +18,7 @@
     "openai",
     "macos",
     "voice-recognition",
-    "hotkey"
+    "electron"
   ],
   "author": "",
   "license": "MIT",
@@ -26,9 +26,24 @@
     "clipboardy": "^2.3.0",
     "commander": "^14.0.0",
     "dotenv": "^16.5.0",
-    "node-global-key-listener": "^0.3.0",
     "node-record-lpcm16": "^1.0.1",
     "openai": "^5.0.1"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.8.0"
+  },
+  "build": {
+    "appId": "com.whisper.mac",
+    "productName": "WhisperMac",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": "dmg"
+    },
+    "files": [
+      "**/*",
+      "!{node_modules/.bin,node_modules/electron-builder}/**/*"
+    ]
   },
   "engines": {
     "node": ">=14.0.0"
