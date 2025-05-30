@@ -1,0 +1,36 @@
+{
+  "name": "whisper-mac",
+  "version": "1.0.0",
+  "description": "Приложение для преобразования голоса в текст с помощью OpenAI Whisper API на macOS",
+  "main": "index.js",
+  "bin": {
+    "whisper-mac": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "hotkey": "node index.js -k",
+    "hotkey:sudo": "sudo node index.js -k",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "speech-to-text",
+    "whisper",
+    "openai",
+    "macos",
+    "voice-recognition",
+    "hotkey"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "clipboardy": "^2.3.0",
+    "commander": "^14.0.0",
+    "dotenv": "^16.5.0",
+    "node-global-key-listener": "^0.3.0",
+    "node-record-lpcm16": "^1.0.1",
+    "openai": "^5.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

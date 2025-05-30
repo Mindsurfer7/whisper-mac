@@ -1,0 +1,26 @@
+# Зависимости
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Переменные окружения
+.env
+
+# Временные файлы
+temp/
+*.wav
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Логи
+logs
+*.log
+
+# Директории сборки
+dist/
+build/ 
